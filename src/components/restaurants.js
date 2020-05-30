@@ -1,12 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import Menu from './menu';
 import Navigation from './navigation';
-
+import Restaurant from './restaurant';
 export default function Restaurants(props) {
   const [activeRestaurantId, setActiveRestaurant] = useState(
     props.restaurants[0].id
   );
-
   const activeRestaurant = useMemo(
     () =>
       props.restaurants.find(
@@ -14,14 +12,13 @@ export default function Restaurants(props) {
       ),
     [activeRestaurantId, props.restaurants]
   );
-
   return (
     <div>
       <Navigation
         restaurants={props.restaurants}
         onRestaurantClick={setActiveRestaurant}
       />
-      <Menu menu={activeRestaurant.menu} />
+      <Restaurant restaurant={activeRestaurant} />
     </div>
   );
 }
