@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Star from './star';
+import PropTypes from 'prop-types';
+import Navigation from '../navigation';
 
 const Rate = ({ value }) => (
   <div>
@@ -9,5 +11,9 @@ const Rate = ({ value }) => (
     ))}
   </div>
 );
+
+Rate.propTypes = {
+  value: PropTypes.number.isRequired,
+};
 
 export default Rate;
